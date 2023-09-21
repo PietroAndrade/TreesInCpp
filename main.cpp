@@ -1,6 +1,7 @@
-#include <iostream>
-
 #include "binary_tree.h"
+
+#include <iostream>
+#include <memory>
 
 int main()
 {
@@ -10,8 +11,7 @@ int main()
     std::cout << "3 - sair" << std::endl;
     int opcao = 0;
     int valor = 0;
-    BinaryTree lilTree;
-    Node* aux = nullptr;
+    std::unique_ptr<BinaryTree> lilTree = std::make_unique<BinaryTree>();
 
     while(true)
     {
@@ -23,7 +23,7 @@ int main()
         case 1:
             std::cout <<"valor da arvore em int" << std::endl;
             std::cin >> valor;
-            lilTree.InsertNode(aux, valor);
+            lilTree->Insert(valor);
             break;
         case 2:
             // lilTree.Inorder(lilTree.root);

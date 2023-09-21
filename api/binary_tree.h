@@ -1,7 +1,5 @@
-#include <algorithm>
 #include <string>
 #include <iostream>
-
 
 class Node 
 {
@@ -15,24 +13,24 @@ class BinaryTree
 {
     public:
         BinaryTree();
-        ~BinaryTree();
+        // ~BinaryTree();
 
-        void DestroyTree();
-        void Insert(int key);
-        Node* Search(int key);
-        void InorderPrint();
-        void PostOrderPrint();        
-        void PreOrderPrint();
+        // void DestroyTree();
+        void Insert(int data);
+        // Node* Search(int key);
+        // void InorderPrint();
+        // void PostOrderPrint();        
+        // void PreOrderPrint();
 
     private:
         Node *root;
 
-        void DestroyTreeInternaly(Node* node);
+        // void DestroyTreeInternaly(Node* node);
 
         void InsertInternaly(Node* node, int data);
-        void InorderInternaly(Node* node);
-        Node* SearchInternaly(Node* node, int data);
+        // void InorderInternaly(Node* node);
+        // Node* SearchInternaly(Node* node, int data);
 
-        void PostInternaly(Node *node);
-        void PreInternaly(Node *node);
+        // void PostInternaly(Node *node);
+        // void PreInternaly(Node *node);
 };

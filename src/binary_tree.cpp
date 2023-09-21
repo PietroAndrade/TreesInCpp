@@ -2,66 +2,74 @@
 
 using namespace std;
 
-void BinaryTree::InsertNode(Node *p, int data)
+BinaryTree::BinaryTree()
 {
-    if(root == nullptr)
+    root == nullptr;
+}
+
+void BinaryTree::InsertInternaly(Node *node, int data)
+{
+    if(node == nullptr)
     {
         cerr << "inserting new node:"<< data <<endl;
-        root = new Node;
-        root->left = nullptr;
-        root->right = nullptr;
-        root->data = data;
+        node = new Node;
+        node->left = nullptr;
+        node->right = nullptr;
+        node->data = data;
     }
     
-    if(data < root->data)
+    if(data < node->data)
     {
-        cerr << "insert left=" << root->data << endl;
-        p = root;
-        InsertNode(p->left, data);
+        cerr << "insert left=" << node->data << endl;
+        InsertInternaly(node->left, data);
     }
     else
     {
-        cerr << "insert right=" << root->data << endl;
-        p = root;
-        InsertNode(p->right, data);
+        cerr << "insert right=" << node->data << endl;
+        InsertInternaly(node->right, data);
     }
 }
 
-bool BinaryTree::Search(Node* p, int data) 
+void BinaryTree::Insert(int data)
 {
-    if(root == nullptr)
-    {
-        return false;
-    }
-
-    if(root->data == data)
-    {
-        return true;
-    }
-    else
-    {
-        if(data < root->data)
-        {
-            cout << "Left" << endl;
-            p = root;
-            return Search(p->left, data);
-        }
-        else 
-        {
-            cout << "Right" << endl;
-            p = root;
-            return Search(p->right, data);
-        }
-    }
+    InsertInternaly(root, data);
 }
 
-void BinaryTree::Inorder(Node* root)
-{
-  if (root != nullptr) 
-  {
-    Inorder(root->left);
-    cerr << root->data << " -> ";
-    Inorder(root->right);
-  }
-}
+// bool BinaryTree::Search(Node* p, int data) 
+// {
+//     if(root == nullptr)
+//     {
+//         return false;
+//     }
+
+//     if(root->data == data)
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         if(data < root->data)
+//         {
+//             cout << "Left" << endl;
+//             p = root;
+//             return Search(p->left, data);
+//         }
+//         else 
+//         {
+//             cout << "Right" << endl;
+//             p = root;
+//             return Search(p->right, data);
+//         }
+//     }
+// }
+
+// void BinaryTree::Inorder(Node* root)
+// {
+//   if (root != nullptr) 
+//   {
+//     Inorder(root->left);
+//     cerr << root->data << " -> ";
+//     Inorder(root->right);
+//   }
+// }
 
