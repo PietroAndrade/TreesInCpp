@@ -1,6 +1,5 @@
 #include "binary_tree.h"
 
-#include <iostream>
 #include <memory>
 
 int main()
@@ -26,7 +25,7 @@ int main()
             lilTree->Insert(valor);
             break;
         case 2:
-            // lilTree.Inorder(lilTree.root);
+            // lilTree->Inorder(lilTree.root);
             break;
         case 3:
             std::cout << "deu certo " <<std::endl;
