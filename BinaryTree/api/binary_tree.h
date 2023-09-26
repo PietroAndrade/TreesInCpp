@@ -13,9 +13,9 @@ class BinaryTree
 {
     public:
         BinaryTree();
-        // ~BinaryTree();
+        ~BinaryTree();
 
-        // void DestroyTree();
+        void DestroyTree();
         void Insert(int data);
         // Node* Search(int key);
         // void InorderPrint();
@@ -25,8 +25,7 @@ class BinaryTree
     private:
         Node *root;
 
-        // void DestroyTreeInternaly(Node* node);
-
+        void DestroyTreeInternaly(Node* node);
         void InsertInternaly(Node* node, int data);
         // void InorderInternaly(Node* node);
         // Node* SearchInternaly(Node* node, int data);

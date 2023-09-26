@@ -4,7 +4,52 @@ using namespace std;
 
 BinaryTree::BinaryTree()
 {
-    root == nullptr;
+    BinaryTree::root == nullptr;
+}
+
+BinaryTree::~BinaryTree()
+{
+    DestroyTree();
+}
+
+void BinaryTree::Insert(int data)
+{
+    InsertInternaly(BinaryTree::root, data);
+}
+
+void BinaryTree::DestroyTree()
+{
+    DestroyTreeInternaly(BinaryTree::root);
+}
+
+// void BinaryTree::Search(int key)
+// {
+//     SearchInternaly(root, data);
+// }
+
+// void BinaryTree::InorderPrint()
+// {
+//     InorderInternaly(root);
+// }
+
+// void BinaryTree::PostOrderPrint()
+// {
+//     PostInternaly(root);
+// }
+
+// void BinaryTree::PreOrderPrint()
+// {
+//     PreInternaly(root);
+// }
+
+void BinaryTree::DestroyTreeInternaly(Node* node)
+{
+    if(!BinaryTree::root)
+    {
+        DestroyTreeInternaly(BinaryTree::root->left);
+        DestroyTreeInternaly(BinaryTree::root->right);
+        delete BinaryTree::root;
+    }
 }
 
 void BinaryTree::InsertInternaly(Node *node, int data)
@@ -28,11 +73,6 @@ void BinaryTree::InsertInternaly(Node *node, int data)
         cerr << "insert right=" << node->data << endl;
         InsertInternaly(node->right, data);
     }
-}
-
-void BinaryTree::Insert(int data)
-{
-    InsertInternaly(root, data);
 }
 
 // bool BinaryTree::Search(Node* p, int data) 
