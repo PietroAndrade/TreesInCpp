@@ -22,24 +22,24 @@ void BinaryTree::DestroyTree()
     DestroyTreeInternaly(BinaryTree::root);
 }
 
-// void BinaryTree::Search(int key)
-// {
-//     SearchInternaly(root, data);
-// }
+bool BinaryTree::Search(int key)
+{
+    return SearchInternaly(BinaryTree::root, key);
+}
 
 // void BinaryTree::InorderPrint()
 // {
-//     InorderInternaly(root);
+//     InorderInternaly(BinaryTree::root);
 // }
 
 // void BinaryTree::PostOrderPrint()
 // {
-//     PostInternaly(root);
+//     PostInternaly(BinaryTree::root);
 // }
 
 // void BinaryTree::PreOrderPrint()
 // {
-//     PreInternaly(root);
+//     PreInternaly(BinaryTree::root);
 // }
 
 void BinaryTree::DestroyTreeInternaly(Node* node)
@@ -75,33 +75,33 @@ void BinaryTree::InsertInternaly(Node *node, int data)
     }
 }
 
-// bool BinaryTree::Search(Node* p, int data) 
-// {
-//     if(root == nullptr)
-//     {
-//         return false;
-//     }
+bool BinaryTree::SearchInternaly(Node* p, int data) 
+{
+    if(root == nullptr)
+    {
+        return false;
+    }
 
-//     if(root->data == data)
-//     {
-//         return true;
-//     }
-//     else
-//     {
-//         if(data < root->data)
-//         {
-//             cout << "Left" << endl;
-//             p = root;
-//             return Search(p->left, data);
-//         }
-//         else 
-//         {
-//             cout << "Right" << endl;
-//             p = root;
-//             return Search(p->right, data);
-//         }
-//     }
-// }
+    if(root->data == data)
+    {
+        return true;
+    }
+    else
+    {
+        if(data < root->data)
+        {
+            cout << "Left" << endl;
+            p = root;
+            return SearchInternaly(p->left, data);
+        }
+        else 
+        {
+            cout << "Right" << endl;
+            p = root;
+            return SearchInternaly(p->right, data);
+        }
+    }
+}
 
 // void BinaryTree::Inorder(Node* root)
 // {

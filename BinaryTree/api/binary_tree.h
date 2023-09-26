@@ -17,7 +17,7 @@ class BinaryTree
 
         void DestroyTree();
         void Insert(int data);
-        // Node* Search(int key);
+        bool Search(int key);
         // void InorderPrint();
         // void PostOrderPrint();        
         // void PreOrderPrint();
@@ -28,8 +28,8 @@ class BinaryTree
         void DestroyTreeInternaly(Node* node);
         void InsertInternaly(Node* node, int data);
         // void InorderInternaly(Node* node);
-        // Node* SearchInternaly(Node* node, int data);
-
         // void PostInternaly(Node *node);
         // void PreInternaly(Node *node);
+        bool SearchInternaly(Node* node, int data);
+
 };
