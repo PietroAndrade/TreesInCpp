@@ -44,11 +44,11 @@ bool BinaryTree::Search(int key)
 
 void BinaryTree::DestroyTreeInternaly(Node* node)
 {
-    if(!BinaryTree::root)
+    if(BinaryTree::root != nullptr)
     {
-        DestroyTreeInternaly(BinaryTree::root->left);
-        DestroyTreeInternaly(BinaryTree::root->right);
-        delete BinaryTree::root;
+        DestroyTreeInternaly(node->left);
+        DestroyTreeInternaly(node->right);
+        delete node;
     }
 }
 
@@ -56,22 +56,25 @@ void BinaryTree::InsertInternaly(Node *node, int data)
 {
     if(node == nullptr)
     {
-        cerr << "inserting new node:"<< data <<endl;
-        node = new Node;
+        // cerr << "inserting new node:"<< data <<endl;
+        node = new Node();
         node->left = nullptr;
         node->right = nullptr;
         node->data = data;
     }
-    
-    if(data < node->data)
-    {
-        cerr << "insert left=" << node->data << endl;
-        InsertInternaly(node->left, data);
-    }
     else
     {
-        cerr << "insert right=" << node->data << endl;
-        InsertInternaly(node->right, data);
+        
+        if(data < node->data)
+        {
+            // cerr << "insert left: " << node->data << endl;
+            return InsertInternaly(node->left, data);
+        }
+        else
+        {
+            // cerr << "insert right: " << node->data << endl;
+            return InsertInternaly(node->right, data);
+        }
     }
 }
 
