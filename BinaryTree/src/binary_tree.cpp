@@ -24,6 +24,7 @@ void BinaryTree::DestroyTree()
 
 bool BinaryTree::Search(int key)
 {
+    cout << "Let's search" << endl;
     return SearchInternaly(BinaryTree::root, key);
 }
 
@@ -52,56 +53,54 @@ void BinaryTree::DestroyTreeInternaly(Node* node)
     }
 }
 
-void BinaryTree::InsertInternaly(Node *node, int data)
+void BinaryTree::InsertInternaly(Node* &node, int data)
 {
     if(node == nullptr)
     {
-        // cerr << "inserting new node:"<< data <<endl;
-        node = new Node();
+        cerr << "inserting new node:"<< data <<endl;
+        node = new Node;
         node->left = nullptr;
         node->right = nullptr;
         node->data = data;
     }
     else
     {
-        
         if(data < node->data)
         {
-            // cerr << "insert left: " << node->data << endl;
+            cerr << "insert left " << endl;
             return InsertInternaly(node->left, data);
         }
         else
         {
-            // cerr << "insert right: " << node->data << endl;
+            cerr << "insert right "<< endl;
             return InsertInternaly(node->right, data);
         }
     }
+
 }
 
-bool BinaryTree::SearchInternaly(Node* p, int data) 
+bool BinaryTree::SearchInternaly(Node* node, int data) 
 {
-    if(root == nullptr)
+    if(node == nullptr)
     {
         return false;
     }
-
-    if(root->data == data)
-    {
-        return true;
-    }
     else
-    {
-        if(data < root->data)
+    {    
+        if(node->data == data)
         {
-            cout << "Left" << endl;
-            p = root;
-            return SearchInternaly(p->left, data);
+            cout << "#### Find it ####" << endl;
+            return true;
+        }
+        else if(data < node->data)
+        {
+            cout << "Left ";
+            return SearchInternaly(node->left, data);
         }
         else 
         {
-            cout << "Right" << endl;
-            p = root;
-            return SearchInternaly(p->right, data);
+            cout << "Right ";
+            return SearchInternaly(node->right, data);
         }
     }
 }
