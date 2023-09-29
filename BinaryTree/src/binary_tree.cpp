@@ -23,20 +23,23 @@ bool BinaryTree::Search(int key)
     return SearchInternaly(root, key);
 }
 
-// void BinaryTree::InorderPrint()
-// {
-//     InorderInternaly(BinaryTree::root);
-// }
+void BinaryTree::InorderPrint()
+{
+    cout << "Printing Inorder" <<endl;
+    InorderInternaly(root);
+}
 
-// void BinaryTree::PostOrderPrint()
-// {
-//     PostInternaly(BinaryTree::root);
-// }
+void BinaryTree::PostOrderPrint()
+{
+    cout << "Printing PostOrder" <<endl;
+    PostInternaly(root);
+}
 
-// void BinaryTree::PreOrderPrint()
-// {
-//     PreInternaly(BinaryTree::root);
-// }
+void BinaryTree::PreOrderPrint()
+{
+    cout << "Printing PreOrder" <<endl;
+    PreInternaly(root);
+}
 
 void BinaryTree::DestroyTreeInternaly(Node* &node)
 {
@@ -99,13 +102,32 @@ bool BinaryTree::SearchInternaly(Node* &node, int data)
     }
 }
 
-// void BinaryTree::Inorder(Node* root)
-// {
-//   if (root != nullptr) 
-//   {
-//     Inorder(root->left);
-//     cerr << root->data << " -> ";
-//     Inorder(root->right);
-//   }
-// }
+void BinaryTree::InorderInternaly(Node* &node)
+{
+    if (node != nullptr) 
+    {
+        InorderInternaly(node->left);
+        cout << node->data << " -> ";
+        InorderInternaly(node->right);
+    }
+}
 
+void BinaryTree::PostInternaly(Node* &node)
+{
+    if (node != nullptr) 
+    {
+        PostInternaly(node->left);
+        PostInternaly(node->right);
+        cout << node->data << " -> ";
+    }
+}
+
+void BinaryTree::PreInternaly(Node* &node)
+{
+    if (node != nullptr) 
+    {
+        cout << node->data << " -> ";
+        PreInternaly(node->left);
+        PreInternaly(node->right);
+    }
+}

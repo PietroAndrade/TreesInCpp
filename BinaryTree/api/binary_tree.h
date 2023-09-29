@@ -17,18 +17,18 @@ class BinaryTree
 
         void Insert(int data);
         bool Search(int key);
-        // void InorderPrint();
-        // void PostOrderPrint();        
-        // void PreOrderPrint();
+        void InorderPrint();
+        void PostOrderPrint();        
+        void PreOrderPrint();
 
     private:
         Node *root = nullptr;
 
         void DestroyTreeInternaly(Node* &node);
         void InsertInternaly(Node* &node, int data);
-        // void InorderInternaly(Node* node);
-        // void PostInternaly(Node *node);
-        // void PreInternaly(Node *node);
+        void InorderInternaly(Node*  &node);
+        void PostInternaly(Node* &node);
+        void PreInternaly(Node* &node);
         bool SearchInternaly(Node* &node, int data);
 
 };

@@ -12,7 +12,7 @@ int main()
     {
         lilTree->Insert(leaf);
     }
-    std::cout << "There is a 15 in the tree?";
+    std::cout << "Is there a 15 in the tree?";
     bool Test = lilTree->Search(15);
 
     if(Test) 
@@ -23,7 +23,7 @@ int main()
     }
 
     Test = lilTree->Search(30);
-    std::cout << "There is a 30 in the tree?";
+    std::cout << "Is there a 30 in the tree?";
 
     if(Test) 
     {
@@ -32,6 +32,10 @@ int main()
         std::cout << "No" << std::endl;
     }
     
+    lilTree->InorderPrint();
+    lilTree->PostOrderPrint();
+    lilTree->PreOrderPrint();
+
     std::cout << "destroy" << std::endl;
 }
 
