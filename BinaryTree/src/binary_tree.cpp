@@ -9,24 +9,19 @@ BinaryTree::BinaryTree()
 
 BinaryTree::~BinaryTree()
 {
-    DestroyTreeInternaly(&root);
+    DestroyTreeInternaly(root);
 }
 
 void BinaryTree::Insert(int data)
 {
-    InsertInternaly(&root, data);
+    InsertInternaly(root, data);
 }
 
-// void BinaryTree::DestroyTree()
-// {
-//     DestroyTreeInternaly(&root);
-// }
-
-// bool BinaryTree::Search(int key)
-// {
-//     cout << "Let's search" << endl;
-    //     return SearchInternaly(this->root, key);
-// }
+bool BinaryTree::Search(int key)
+{
+    cout << "Let's search" << endl;
+    return SearchInternaly(root, key);
+}
 
 // void BinaryTree::InorderPrint()
 // {
@@ -43,13 +38,13 @@ void BinaryTree::Insert(int data)
 //     PreInternaly(BinaryTree::root);
 // }
 
-void BinaryTree::DestroyTreeInternaly(Node** node)
+void BinaryTree::DestroyTreeInternaly(Node* &node)
 {
-    if((*node) != nullptr)
+    if(node != nullptr)
     {
-        DestroyTreeInternaly(&(*node)->left);
-        DestroyTreeInternaly(&(*node)->right);
-        delete (*node);
+        DestroyTreeInternaly(node->left);
+        DestroyTreeInternaly(node->right);
+        delete node;
     }
 }
 
@@ -78,31 +73,31 @@ void BinaryTree::InsertInternaly(Node* &node, int data)
 
 }
 
-// bool BinaryTree::SearchInternaly(Node* node, int data) 
-// {
-//     if(node == nullptr)
-    //     {
-//         return false;
-    //     }
-//     else
-    //     {    
-//         if(node->data == data)
-        //         {
-//             cout << "#### Find it ####" << endl;
-            //             return true;
-        //         }
-//         else if(data < node->data)
-        //         {
-//             cout << "Left ";
-            //             return SearchInternaly(node->left, data);
-        //         }
-//         else 
-        //         {
-//             cout << "Right ";
-            //             return SearchInternaly(node->right, data);
-        //         }
-//     }
-// }
+bool BinaryTree::SearchInternaly(Node* &node, int data) 
+{
+    if(node == nullptr)
+    {
+        return false;
+    }
+    else
+    {    
+        if(node->data == data)
+        {
+            cout << "#### Find it ####" << endl;
+            return true;
+        }
+        else if(data < node->data)
+        {
+            cout << "Left ";
+            return SearchInternaly(node->left, data);
+        }
+        else 
+        {
+            cout << "Right ";
+            return SearchInternaly(node->right, data);
+        }
+    }
+}
 
 // void BinaryTree::Inorder(Node* root)
 // {
