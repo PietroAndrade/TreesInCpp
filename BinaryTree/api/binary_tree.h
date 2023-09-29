@@ -25,7 +25,7 @@ class BinaryTree
         Node *root = nullptr;
 
         void DestroyTreeInternaly(Node** node);
-        void InsertInternaly(Node** node, int data);
+        void InsertInternaly(Node* &node, int data);
         // void InorderInternaly(Node* node);
         // void PostInternaly(Node *node);
         // void PreInternaly(Node *node);

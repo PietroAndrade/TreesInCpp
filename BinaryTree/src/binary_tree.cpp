@@ -25,7 +25,7 @@ void BinaryTree::Insert(int data)
 // bool BinaryTree::Search(int key)
 // {
 //     cout << "Let's search" << endl;
-//     return SearchInternaly(this->root, key);
+    //     return SearchInternaly(this->root, key);
 // }
 
 // void BinaryTree::InorderPrint()
@@ -53,27 +53,27 @@ void BinaryTree::DestroyTreeInternaly(Node** node)
     }
 }
 
-void BinaryTree::InsertInternaly(Node** node, int data)
+void BinaryTree::InsertInternaly(Node* &node, int data)
 {
-    if((*node) == nullptr)
+    if(node == nullptr)
     {
         cout << "inserting new node:"<< data <<endl;
-        *node = new Node;
-        (*node)->left = nullptr;
-        (*node)->right = nullptr;
-        (*node)->data = data;
+        node = new Node;
+        node->left = nullptr;
+        node->right = nullptr;
+        node->data = data;
         return;
     }
 
-    if(data < (*node)->data)
+    if(data < node->data)
     {
         cout << "insert left " << endl;
-        return InsertInternaly(&(*node)->left, data);
+        return InsertInternaly(node->left, data);
     }
     else
     {
         cout << "insert right "<< endl;
-        return InsertInternaly(&(*node)->right, data);
+        return InsertInternaly(node->right, data);
     }
 
 }
@@ -81,26 +81,26 @@ void BinaryTree::InsertInternaly(Node** node, int data)
 // bool BinaryTree::SearchInternaly(Node* node, int data) 
 // {
 //     if(node == nullptr)
-//     {
+    //     {
 //         return false;
-//     }
+    //     }
 //     else
-//     {    
+    //     {    
 //         if(node->data == data)
-//         {
+        //         {
 //             cout << "#### Find it ####" << endl;
-//             return true;
-//         }
+            //             return true;
+        //         }
 //         else if(data < node->data)
-//         {
+        //         {
 //             cout << "Left ";
-//             return SearchInternaly(node->left, data);
-//         }
+            //             return SearchInternaly(node->left, data);
+        //         }
 //         else 
-//         {
+        //         {
 //             cout << "Right ";
-//             return SearchInternaly(node->right, data);
-//         }
+            //             return SearchInternaly(node->right, data);
+        //         }
 //     }
 // }
 
