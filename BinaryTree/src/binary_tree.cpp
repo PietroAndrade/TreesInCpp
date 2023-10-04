@@ -55,7 +55,7 @@ void BinaryTree::InsertInternaly(Node* &node, int data)
 {
     if(node == nullptr)
     {
-        cout << "inserting new node:"<< data <<endl;
+        cout << "Inserting new node:"<< data <<endl;
         node = new Node;
         node->left = nullptr;
         node->right = nullptr;
@@ -65,12 +65,12 @@ void BinaryTree::InsertInternaly(Node* &node, int data)
 
     if(data < node->data)
     {
-        cout << "insert left " << endl;
+        cout << "New leaf on the Left" << endl;
         return InsertInternaly(node->left, data);
     }
     else
     {
-        cout << "insert right "<< endl;
+        cout << "New leaf on the Right"<< endl;
         return InsertInternaly(node->right, data);
     }
 
@@ -91,12 +91,12 @@ bool BinaryTree::SearchInternaly(Node* &node, int data)
         }
         else if(data < node->data)
         {
-            cout << "Left ";
+            cout << "Searching in left leaf " << endl;
             return SearchInternaly(node->left, data);
         }
         else 
         {
-            cout << "Right ";
+            cout << "Searching in right leaf" << endl;
             return SearchInternaly(node->right, data);
         }
     }
