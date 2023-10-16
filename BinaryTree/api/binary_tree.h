@@ -1,13 +1,8 @@
+#pragma once
+
 #include <string>
 #include <iostream>
-
-class Node 
-{
-    public:
-        int data;
-        Node *left;
-        Node *right;
-};
+#include <memory>
 
 class BinaryTree
 {
@@ -22,13 +17,37 @@ class BinaryTree
         void PreOrderPrint();
 
     private:
-        Node *root = nullptr;
-
-        void DestroyTreeInternaly(Node* &node);
-        void InsertInternaly(Node* &node, int data);
-        void InorderInternaly(Node*  &node);
-        void PostInternaly(Node* &node);
-        void PreInternaly(Node* &node);
-        bool SearchInternaly(Node* &node, int data);
-
+        class BinaryTreeImpl;
+        std::unique_ptr<BinaryTreeImpl> m_impl;
 };
+
+// // BinaryTree::BinaryTree()
+// // {
+// // }
+
+// // BinaryTree::~BinaryTree()
+// // {
+// // }
+
+// void BinaryTree::Insert(int data)
+// {
+//     m_impl->Insert(data);
+// }
+
+// bool BinaryTree::Search(int key)
+// {
+//     return m_impl->Search(key);
+// }
+
+// void BinaryTree::InorderPrint()
+// {
+//     m_impl->InorderPrint();
+// }
+// void BinaryTree::PostOrderPrint()
+// {
+//     m_impl->PostOrderPrint();
+// }        
+// void BinaryTree::PreOrderPrint()
+// {
+//     m_impl->PreOrderPrint();
+// }
