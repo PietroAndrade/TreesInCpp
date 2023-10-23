@@ -13,10 +13,10 @@ class BinaryTree
 
 
         void Insert(int data);
-        // bool Search(int key);
-        // void InorderPrint();
-        // void PostOrderPrint();        
-        // void PreOrderPrint();
+        bool Search(int key);
+        void InorderPrint();
+        void PostOrderPrint();        
+        void PreOrderPrint();
 
     private:
         class BinaryTreeImpl;

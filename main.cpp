@@ -12,26 +12,26 @@ int main()
         lilTree->Insert(leaf);
     }
 
-    // auto Test = [&](int number){
-    //     printf("Is there a %d in the tree?", number);
+    auto Test = [&](int number){
+        printf("Is there a %d in the tree?", number);
 
-    //     bool result = lilTree->Search(number);
+        bool result = lilTree->Search(number);
 
-    //     if(result){
-    //         std::cout << "Yes" << std::endl;
-    //     }
-    //     else
-    //     {
-    //         std::cout << "No" << std::endl;
-    //     }
-    // };
+        if(result){
+            std::cout << "Yes" << std::endl;
+        }
+        else
+        {
+            std::cout << "No" << std::endl;
+        }
+    };
 
-    // Test(15);
-    // Test(30);
+    Test(15);
+    Test(30);
    
-    // lilTree->InorderPrint();
-    // lilTree->PostOrderPrint();
-    // lilTree->PreOrderPrint();
+    lilTree->InorderPrint();
+    lilTree->PostOrderPrint();
+    lilTree->PreOrderPrint();
 
     std::cout << "destroy" << std::endl;
 }
