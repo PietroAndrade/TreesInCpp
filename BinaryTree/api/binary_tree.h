@@ -10,7 +10,13 @@ class BinaryTree
     public:
         BinaryTree();
         ~BinaryTree();
+        
+        BinaryTree(BinaryTree const&) = delete;
+        BinaryTree operator=(const BinaryTree&) = delete;
+        BinaryTree(BinaryTree&&) = default;
+        BinaryTree& operator=(BinaryTree&&) = default;
 
+        class Impl;
 
         void Insert(int data);
         bool Search(int key);
@@ -19,6 +25,5 @@ class BinaryTree
         void PreOrderPrint();
 
     private:
-        class BinaryTreeImpl;
-        std::unique_ptr<BinaryTreeImpl> m_impl;
+        std::unique_ptr<Impl> m_impl;
 };
