@@ -5,37 +5,38 @@ void BinaryTreeImpl::Insert(int data)
     InsertInternaly(root, data);
 }
 
-bool BinaryTreeImpl::Search(int key)
+bool BinaryTreeImpl::Search(int key) const
 {
     std::cout << "Let's search" << std::endl;
     return SearchInternaly(root, key);
 }
 
-void BinaryTreeImpl::InorderPrint()
+void BinaryTreeImpl::InorderPrint() const
 {
     std::cout << "Printing Inorder" << std::endl;
     InorderInternaly(root);
 }
 
-void BinaryTreeImpl::PostOrderPrint()
+void BinaryTreeImpl::PostOrderPrint() const
 {
     std::cout << "Printing PostOrder" << std::endl;
     PostInternaly(root);
 }
 
-void BinaryTreeImpl::PreOrderPrint()
+void BinaryTreeImpl::PreOrderPrint() const
 {
     std::cout << "Printing PreOrder" << std::endl;
     PreInternaly(root);
 }
 
-void BinaryTreeImpl::DestroyTreeInternaly(Node* &node)
+void BinaryTreeImpl::DestroyTreeInternaly(Node* &node) const
 {
     if(node != nullptr)
     {
         DestroyTreeInternaly(node->left);
         DestroyTreeInternaly(node->right);
         delete node;
+        std::cout << "node deleted" << std::endl;
     }
 }
 
@@ -64,7 +65,7 @@ void BinaryTreeImpl::InsertInternaly(Node* &node, int data)
 
 }
 
-bool BinaryTreeImpl::SearchInternaly(Node* &node, int data) 
+bool BinaryTreeImpl::SearchInternaly(Node* const &node, int data) const
 {
     if(node == nullptr)
     {
@@ -90,7 +91,7 @@ bool BinaryTreeImpl::SearchInternaly(Node* &node, int data)
     }
 }
 
-void BinaryTreeImpl::InorderInternaly(Node* &node)
+void BinaryTreeImpl::InorderInternaly(Node* const &node) const
 {
     if (node != nullptr) 
     {
@@ -100,7 +101,7 @@ void BinaryTreeImpl::InorderInternaly(Node* &node)
     }
 }
 
-void BinaryTreeImpl::PostInternaly(Node* &node)
+void BinaryTreeImpl::PostInternaly(Node* const &node) const
 {
     if (node != nullptr) 
     {
@@ -110,7 +111,7 @@ void BinaryTreeImpl::PostInternaly(Node* &node)
     }
 }
 
-void BinaryTreeImpl::PreInternaly(Node* &node)
+void BinaryTreeImpl::PreInternaly(Node* const &node) const
 {
     if (node != nullptr) 
     {
