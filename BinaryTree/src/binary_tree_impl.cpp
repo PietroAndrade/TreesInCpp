@@ -29,7 +29,7 @@ void BinaryTreeImpl::PreOrderPrint() const
     PreInternaly(root);
 }
 
-void BinaryTreeImpl::DestroyTreeInternaly(Node* &node) const
+void BinaryTreeImpl::DestroyTreeInternaly(BinaryNode* &node) const
 {
     if(node != nullptr)
     {
@@ -40,12 +40,12 @@ void BinaryTreeImpl::DestroyTreeInternaly(Node* &node) const
     }
 }
 
-void BinaryTreeImpl::InsertInternaly(Node* &node, int data)
+void BinaryTreeImpl::InsertInternaly(BinaryNode* &node, int data)
 {
     if(node == nullptr)
     {    
         std::cout << "Inserting new node:"<< data << std::endl;
-        node = new Node;
+        node = new BinaryNode();
         node->left = nullptr;
         node->right = nullptr;
         node->data = data;
@@ -65,7 +65,7 @@ void BinaryTreeImpl::InsertInternaly(Node* &node, int data)
 
 }
 
-bool BinaryTreeImpl::SearchInternaly(Node* const &node, int data) const
+bool BinaryTreeImpl::SearchInternaly(BinaryNode* const &node, int data) const
 {
     if(node == nullptr)
     {
@@ -91,7 +91,7 @@ bool BinaryTreeImpl::SearchInternaly(Node* const &node, int data) const
     }
 }
 
-void BinaryTreeImpl::InorderInternaly(Node* const &node) const
+void BinaryTreeImpl::InorderInternaly(BinaryNode* const &node) const
 {
     if (node != nullptr) 
     {
@@ -101,7 +101,7 @@ void BinaryTreeImpl::InorderInternaly(Node* const &node) const
     }
 }
 
-void BinaryTreeImpl::PostInternaly(Node* const &node) const
+void BinaryTreeImpl::PostInternaly(BinaryNode* const &node) const
 {
     if (node != nullptr) 
     {
@@ -111,7 +111,7 @@ void BinaryTreeImpl::PostInternaly(Node* const &node) const
     }
 }
 
-void BinaryTreeImpl::PreInternaly(Node* const &node) const
+void BinaryTreeImpl::PreInternaly(BinaryNode* const &node) const
 {
     if (node != nullptr) 
     {
