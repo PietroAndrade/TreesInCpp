@@ -45,10 +45,7 @@ void BinaryTreeImpl::InsertInternaly(BinaryNode* &node, int data)
     if(node == nullptr)
     {    
         std::cout << "Inserting new node:"<< data << std::endl;
-        node = new BinaryNode();
-        node->left = nullptr;
-        node->right = nullptr;
-        node->data = data;
+        node = new BinaryNode(data);
         return;
     }
 

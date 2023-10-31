@@ -3,7 +3,19 @@
 class BinaryNode final : public INode
 {
     public:
-        int data;
+        explicit BinaryNode(int data)
+        {
+            makeNode(data);
+        }
         BinaryNode *left;
         BinaryNode *right;
+        int data;
+
+    private:
+        void makeNode(int& data) override
+        {
+            this->data = data;
+            this->left = nullptr;
+            this->right = nullptr;
+        }
 };
