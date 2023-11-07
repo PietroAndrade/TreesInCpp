@@ -1,19 +1,22 @@
+#pragma once
+
+
 #include <string>
 #include <iostream>
-
-class Node 
-{
-    public:
-        int data;
-        Node *left;
-        Node *right;
-};
+#include <memory>
 
 class BinaryTree
 {
     public:
         BinaryTree();
         ~BinaryTree();
+        
+        BinaryTree(BinaryTree const&) = delete;
+        BinaryTree operator=(const BinaryTree&) = delete;
+        BinaryTree(BinaryTree&&) = default;
+        BinaryTree& operator=(BinaryTree&&) = default;
+
+        class Impl;
 
         void Insert(int data);
         bool Search(int key);
@@ -22,13 +25,5 @@ class BinaryTree
         void PreOrderPrint();
 
     private:
-        Node *root = nullptr;
-
-        void DestroyTreeInternaly(Node* &node);
-        void InsertInternaly(Node* &node, int data);
-        void InorderInternaly(Node*  &node);
-        void PostInternaly(Node* &node);
-        void PreInternaly(Node* &node);
-        bool SearchInternaly(Node* &node, int data);
-
+        std::unique_ptr<Impl> m_impl;
 };

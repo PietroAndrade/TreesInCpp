@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(BinaryTree)
+add_subdirectory(Node)
 
 add_executable(Trees main.cpp)
 
